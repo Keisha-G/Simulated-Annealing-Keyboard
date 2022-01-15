@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulated Annealing Demo</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="title">Project Introduction</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>The goal of this implementation is to find a more efficient keyboard than the defefault QWERTY.</p>
+        </div>
+      </div>
+      <div id="overlay"></div>
+
+    <h1 class="heading">Simulated Annealing Algorithm</h1>
+    <div class="keyboard">
+    <div class="keyboard__row">
+        <div class="key--bottom-left key--word key--w4" data-key="9">
+        </div>
+        <div class="key--letter" data-char="Q">Q</div>
+        <div class="key--letter" data-char="W">W</div>
+        <div class="key--letter" data-char="E">E</div>
+        <div class="key--letter" data-char="R">R</div>
+        <div class="key--letter" data-char="T">T</div>
+        <div class="key--letter" data-char="Y">Y</div>
+        <div class="key--letter" data-char="U">U</div>
+        <div class="key--letter" data-char="I">I</div>
+        <div class="key--letter" data-char="O">O</div>
+        <div class="key--letter" data-char="P">P</div>
+        <div class="key--double" data-key="219" data-char="{[">
+        </div>
+        <div class="key--double" data-key="221" data-char="}]">
+        </div>
+        <div class="key--double" data-key="220" data-char="|\">
+        </div>
+    </div>
+    <div class="keyboard__row">
+        <div class="key--bottom-left key--word key--w5" data-key="20">
+        </div>
+        <div class="key--letter" data-char="A">A</div>
+        <div class="key--letter" data-char="S">S</div>
+        <div class="key--letter" data-char="D">D</div>
+        <div class="key--letter" data-char="F">F</div>
+        <div class="key--letter" data-char="G">G</div>
+        <div class="key--letter" data-char="H">H</div>
+        <div class="key--letter" data-char="J">J</div>
+        <div class="key--letter" data-char="K">K</div>
+        <div class="key--letter" data-char="L">L</div>
+        <div class="key--double" data-key="186">
+        </div>
+        <div class="key--double" data-key="222">
+        </div>
+        <div class="key--bottom-right key--word key--w5" data-key="13">
+        </div>
+    </div>
+    <div class="keyboard__row">
+        <div class="key--bottom-left key--word key--w6" data-key="16">
+        </div>
+        <div class="key--letter" data-char="Z">Z</div>
+        <div class="key--letter" data-char="X">X</div>
+        <div class="key--letter" data-char="C">C</div>
+        <div class="key--letter" data-char="V">V</div>
+        <div class="key--letter" data-char="B">B</div>
+        <div class="key--letter" data-char="N">N</div>
+        <div class="key--letter" data-char="M">M</div>
+        <div class="key--double" data-key="188">
+        <div>&lt;</div>
+        </div>
+        <div class="key--double" data-key="190">
+        <div>&gt;</div>
+        </div>
+        <div class="key--double" data-key="191">
+        </div>
+        <div class="key--bottom-right key--word key--w6" data-key="16-R">
+        </div>
+    </div>
+    <div class="keyboard__row keyboard__row--h3">
+        <div class="key--bottom-left key--word">
+        </div>
+        <div class="key--bottom-left key--word key--w1" data-key="17">
+        </div>
+        <div class="key--bottom-left key--word key--w1" data-key="18">
+        </div>
+        <div class="key--bottom-right key--word key--w3" data-key="91">
+        </div>
+        <div class="key--double key--right key--space" data-key="32" data-char=" ">
+        &nbsp;
+        </div>
+        <div class="key--bottom-left key--word key--w3" data-key="93-R">
+        </div>
+        <div class="key--bottom-left key--word key--w1" data-key="18-R">
+        </div>
+        <div data-key="37" class="key--arrow">
+        <span>&#9664;</span>
+        </div>
+        <div class="key--double key--arrow--tall" data-key="38">
+        <div>&#9650;</div>
+        <div>&#9660;</div>
+        </div>
+        <div data-key="39" class="key--arrow">
+        <span>&#9654;</span>
+        </div>
+    </div>
+    </div>
+    <div class="algorthmNumbers">
+        <p class="originalCost">-</p>
+        <p class="currentCost">-</p>
+        <p class="currentCostPercent">-</p>
+    </div>
+    <div class="graph"></div>
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    <div class="footer">
+        <button type="button" data-modal-target="#modal"class="footerButton" onclick="openForm()">?</button>
+        <button type="button" class="footerButton">Options</button>
+        <button type="button" class="runAlgorithmButton" onclick="runAlgorithm()">Play</button>
+    </div>
+
+<script src="index.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

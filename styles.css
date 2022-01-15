@@ -1,0 +1,330 @@
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+h1 {
+    color:darkslategrey;
+    text-align: center;
+    padding: 2.5%;
+}
+
+p {
+    color:darkslategrey;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid #444;
+    box-shadow: 0 0.2em 0 0.05em darkslategrey;
+    border-bottom-color: #555;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: darkslategrey;
+  }
+  
+  .modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 10px 15px;
+    color: #555;
+  }
+  
+  #overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+  }
+  
+  #overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+.algorthmNumbers {
+    font-weight: bold;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    color: white;
+    text-align: center;
+}
+
+.footerButton {
+    display: inline-block;
+    background-color: #f7f6e2;
+    border-radius: 10px;
+    border: 2px double;
+    padding: 20px, 50px;
+    font-size: 1.10rem;
+}
+
+.runAlgorithmButton {
+    display: inline-block;
+    background-color: #f7f6e2;
+    border-radius: 10px;
+    border: 2px double; 
+    padding: 20px, 50px;
+    font-size: 1.10rem;
+}
+
+.rowTwo {
+    left: 1000px;
+}
+
+.labels {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.labelItem {
+    padding: 1%;
+}
+
+button {
+    display: inline-block;
+    background-color: #f7f6e2;
+    border-radius: 10px;
+    border: 2px double #cccccc;
+    color: #2e1c1c;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    width: 100px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.spacebar {
+    width: 600px;
+}
+
+html, body { height: 100%; }
+body {
+  background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
+  overflow: hidden;
+}
+
+.ocean { 
+  height: 5%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #015871;
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}
+  
+  .keyboard {
+      text-align: center;
+      font-size: 14px;
+      position: relative;
+    
+  }
+  
+  .keyboard__row {
+      display: inline-block;
+      height: 3em;
+      margin: 0.2em;
+  }
+  
+  .keyboard__row--h3 {
+      height: 3.3em;
+  }
+  
+  .keyboard__row > * {
+    position: relative;
+    background: #f3efe32f;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    float: left;
+    border-radius: 0.3em;
+    margin: 0.2em;
+    padding: 0.2em;
+    width: 3.3em;
+    height: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 1px solid #444;  /*top part borader*/
+    box-shadow: 0 0.2em 0 0.05em darkslategrey;
+    border-bottom-color: #555; /*bottom highlight boarder*/
+  }
+  
+  .keyboard__row--h1 > div {
+      width: 3.5em;
+  }
+  
+  .keyboard__row > div[data-pressed],
+  .keyboard__row > div:active {
+      background: darkslategrey;
+      color: rgb(214, 214, 214);
+      position: relative;
+      top: 0.2em;
+      box-shadow: 0 0 0 0.05em rgb(214, 214, 214);
+  }
+  
+  .key--w3 {
+      width: 4.6em;
+  }
+  
+  .key--w4 {
+      width: 6em;
+  }
+  
+  .key--w5 {
+      width: 6.5em;
+  }
+  
+  .key--w6 {
+      width: 8.3em;
+  }
+  
+  .key--space {
+      width: 18em;
+  }
+  
+  .key--double > * {
+      padding-top: 0.1em;
+  }
+  
+  .key--letter {
+      line-height: 2.8em;
+  }
+  
+  .key--bottom-left > * {
+      position: absolute;
+      text-align: left;
+      bottom: 0.4em;
+      left: 0.4em;
+  }
+  
+  .key--bottom-right > * {
+      position: absolute;
+      text-align: right;
+      bottom: 0.4em;
+      right: 0.4em;
+  }
+  
+  .key--fn > * {
+      font-size: 0.6em;
+      line-height: 1em;
+      padding-top: 1.2em;
+      padding-right: 0.2em;
+      text-align: right;
+      float: right;
+  }
+  
+  .key--word > * {
+      font-size: 0.8em;
+  }
+  
+  .key--arrow--tall > *,
+  .key--arrow > * {
+      font-size: 0.5em;
+      line-height: 3em;
+  }
+  
+  .key--arrow {
+      height: 1.8em;
+      margin-top: 1.7em;
+      line-height: 0.5em;
+  }
+  
+  .key--arrow--tall > * {
+      padding-top: 0.2em;
+  }
+  
+  .keyboard > .keyboard__row {
+      text-align: center;
+  }
