@@ -70,7 +70,7 @@ var Keyboards = (function () {
       }
 
       function _calculateCost (board) { // cost fun
-        coat = 0;
+        cost = 0;
         for (let key in frequency) {
             var keyOne = key.charAt(0);
             var keyTwo = key.charAt(1);
