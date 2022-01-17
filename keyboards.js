@@ -27,6 +27,7 @@ var Keyboards = (function () {
     'C':[4, 1], 'V':[5, 1], 'B':[6, 1],
     'N':[7, 1], 'M':[8, 1], ' ':[6,0]};
     lettersList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' '];
+    var QWERTYCost = _calculateCost(standardLetters);
     /* 
 
     let fr = new FileReader();

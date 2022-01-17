@@ -24,8 +24,9 @@ var App = (function () {
             options.generateNeighbor    = keyboards.GenerateNeighbor; // change one queen from current and return number of attacks on neighbour - int variable
             options.acceptNeighbor      = keyboards.AcceptNeighbor; // fucntion to set current to new neighbour
 
-            // sets DOMQueens in the Draw object as an array of all the sqaures on the chess board - 'td'
-            // assigns the DOMConsole attribute in the Console object to the 'console' div
+            Draw.Initialize(); // sets DOMQueens in the Draw object as an array of all the sqaures on the chess board - 'td'
+            Graph.Initialize((35) / options.coolingFactor, Keyboards.QWERTYCost); // placeholder number for init-temp (35)
+            Console.Initialize(); // assigns the DOMConsole attribute in the Console object to the 'console' div
             // passing options to simulated_annealing.js and calculating current 'temperature' (cost not actually temp)
             // places queens on board acccording to state
             // prints current cost to console

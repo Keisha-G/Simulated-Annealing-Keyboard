@@ -109,11 +109,7 @@
         </div>
     </div>
     </div>
-    <div class="algorthmNumbers">
-        <p class="originalCost">-</p>
-        <p class="currentCost">-</p>
-        <p class="currentCostPercent">-</p>
-    </div>
+    <div class="console"></div>
     <div class="graph"></div>
     <div class="ocean">
         <div class="wave"></div>
@@ -122,10 +118,14 @@
     <div class="footer">
         <button type="button" data-modal-target="#modal"class="footerButton" onclick="openForm()">?</button>
         <button type="button" class="footerButton">Options</button>
-        <button type="button" class="runAlgorithmButton" onclick="runAlgorithm()">Play</button>
+        <button type="button" class="runAlgorithmButton" onclick="App.Start();">Play</button>
     </div>
 
 <script src="index.js"></script>
 <script src="app.js"></script>
+<script src="keyboards.js"></script>
+<script src="graph.js"></script>
+<script src="console.js"></script>
+<script src="drawing.js"></script>
 </body>
 </html>
