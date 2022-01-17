@@ -20,9 +20,9 @@ var App = (function () {
             var options = GetOptions();
             
             // getting states
-            options.generateNewSolution = keyboards.GenerateRandomPositions; // number of attacks - int variable
-            options.generateNeighbor    = keyboards.GenerateNeighbor; // change one queen from current and return number of attacks on neighbour - int variable
-            options.acceptNeighbor      = keyboards.AcceptNeighbor; // fucntion to set current to new neighbour
+            options.generateNewSolution = Keyboards.GenerateRandomPositions; // number of attacks - int variable
+            options.generateNeighbor    = Keyboards.GenerateNeighbor; // change one queen from current and return number of attacks on neighbour - int variable
+            options.acceptNeighbor      = Keyboards.AcceptNeighbor; // fucntion to set current to new neighbour
 
             Draw.Initialize(); // sets DOMQueens in the Draw object as an array of all the sqaures on the chess board - 'td'
             Graph.Initialize((35) / options.coolingFactor, Keyboards.QWERTYCost); // placeholder number for init-temp (35)
