@@ -20,8 +20,8 @@ var App = (function () {
             var options = GetOptions();
             
             // getting states
-            // number of attacks - int variable
-            // change one queen from current and return number of attacks on neighbour - int variable
+            // current cost - int variable
+            // neighbour cost - int variable
             // fucntion to set current to new neighbour
 
             // sets DOMQueens in the Draw object as an array of all the sqaures on the chess board - 'td'
