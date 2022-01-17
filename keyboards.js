@@ -115,7 +115,7 @@ var Keyboards = (function () {
     }
 
     function _getCurrentPositions () {
-        return null;
+        return currentLetters;
     }
 
     return {
