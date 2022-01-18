@@ -8,7 +8,8 @@ var SimulatedAnnealing = (function () {
 
         generateNewSolution      = null,
         generateNeighbor         = null,
-        acceptNeighbor           = null;
+        acceptNeighbor           = null,
+        newSolution              = null;
 
     function _init (options) {
         coolingFactor            = options.coolingFactor;
@@ -16,8 +17,9 @@ var SimulatedAnnealing = (function () {
         generateNewSolution      = options.generateNewSolution;
         generateNeighbor         = options.generateNeighbor;
         acceptNeighbor           = options.acceptNeighbor;
+        newSolution              = options.newSolution;
 
-        currentSystemEnergy      = generateNewSolution(); // ? possibly int value of number of attacks (cost) - NOT temperature
+        currentSystemEnergy      = Keyboards.CalcCost(newSolution); // ? possibly int value of number of attacks (cost) - NOT temperature
         currentSystemTemperature = 35;
         currentStabilizer        = options.initialStabilizer;
     }

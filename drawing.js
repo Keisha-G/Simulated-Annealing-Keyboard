@@ -13,25 +13,64 @@ var Draw = (function () {
         'N':[7, 1], 'M':[8, 1], ' ':[6,0]};
 
     function _init (board) { // big sort
-        _swapKeyTest();
+        //DOMKeys = document.getElementsByTagName('key--letter');
+        //_swapKeyTest('A', 'B');
+        /*
+        do {
+            var swaps = 0;
+            for (var key in standardLetters) {
+                for (var i in board) {
+                    if (board[i].toString()===standardLetters[key].toString() && key!==i) {
+                        _swapKeyText(key, i);
+                        console.log('swapping' + key + ' and ' + i);
+                        swaps++;
+                    }
+                }
+            }
+        } while (swaps > 0);
+        */
+       var counts = 0;
+       while (counts<13) {
+           delete standardLetters[_drawBoard(standardLetters, board)];
+           counts++;
+       }
     }
     
 
     function _drawBoard (oldboard, newboard) { // swap the one different key 
-        //
+        for (var key in oldboard) {
+            for (var i in newboard) {
+                if (!(oldboard[key].toString()===newboard[i].toString()) && key===i) {
+                    _swapKeyText(key, _getAttribute(newboard[i].toString(), key));
+                    console.log('swapping ' + key + ' and ' + i);
+                    return key;
+                }
+            }
+        }
+        return null;
+    }
+
+    function _getAttribute(coord, orginalKey) {
+        for (var key in standardLetters) {
+            if (standardLetters[key].toString()===coord) {
+                return key;
+            }
+        }
+        return orginalKey;
     }
 
     function _swapKeyText(charOne, charTwo) {
         var keyOne = document.querySelector('[data-char*="' + charOne + '"]');
         var keyTwo = document.querySelector('[data-char*="' + charTwo + '"]');
+        console.log('charOne: ' + charOne + ' charTwo: ' + charTwo + ' keyOne: ' + keyOne + ' keyTwo: ' + keyTwo);
     
         keyOne.textContent = charTwo;
         keyTwo.textContent = charOne;
     }
 
-    function _swapKeyTest() {
-        var keyOne = document.querySelector('[data-char*="' + 'K' + '"]');
-        var keyTwo = document.querySelector('[data-char*="' + 'J' + '"]');
+    function _swapKeyTest(charOne, charTwo) {
+        var keyOne = document.querySelector('[data-char*="' + charOne + '"]');
+        var keyTwo = document.querySelector('[data-char*="' + charTwo + '"]');
     
         keyOne.textContent = charTwo;
         keyTwo.textContent = charOne;

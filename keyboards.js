@@ -45,9 +45,9 @@ var Keyboards = (function () {
 
     function _init () { // jumble the letters up
         for (var i = 0; i < 27; i++) {
-            currentLetters = _generateNeighbor();
+            currentLetters = _generateNeighborTwo();
         }
-        newLetters = _generateNeighbor();
+        newLetters = currentLetters;
         return _calculateCost(_getCurrentPositions());
     }
 
@@ -74,38 +74,56 @@ var Keyboards = (function () {
         for (let key in frequency) {
             var keyOne = key.charAt(0);
             var keyTwo = key.charAt(1);
-            var x1 = board[keyOne][0]
-            var x2 = board[keyTwo][0]
-            var y1 = board[keyOne][1]
-            var y2 = board[keyTwo][1]
+            var x1 = board[keyOne][0];
+            var x2 = board[keyTwo][0];
+            var y1 = board[keyOne][1];
+            var y2 = board[keyTwo][1];
             cost += distance(x1, y1, x2, y2);
         }
         return cost;
     }
 
-    function _generateNeighbor () { // swap one key
-        function pickRandomProperty(obj) {
-            var result;
-            var count = 0;
-            for (var prop in obj)
-                if (Math.random() < 1/++count)
-                    result = prop;
-            return result;
+    function pickRandomProperty(obj) {
+        var result;
+        var count = 0;
+        for (var prop in obj)
+            if (Math.random() < 1/++count)
+                result = prop;
+        return result;
+    }
+
+    function _generateNeighborTwo () { // want to return objectinstead of cost
+        var keyOne = pickRandomProperty(newLetters);
+        var keyTwo = pickRandomProperty(newLetters);
+    
+        while (keyOne===keyTwo || keyOne==' ' || keyTwo==' ') {
+            var keyOne = pickRandomProperty(newLetters);
+            var keyTwo = pickRandomProperty(newLetters);
         }
-        var keyOne = pickRandomProperty(newLetters)
-        var keyTwo = pickRandomProperty(newLetters)
+        var keyOneCoord = newLetters[keyOne];
+        var keyTwoCoord = newLetters[keyTwo];
+    
+        newLetters[keyOne] = keyTwoCoord;
+        newLetters[keyTwo] = keyOneCoord;
+    
+        return newLetters;
+    }
+
+    function _generateNeighbor () { // swap one key
+        var keyOne = pickRandomProperty(newLetters);
+        var keyTwo = pickRandomProperty(newLetters);
     
         while (keyOne===keyTwo && keyOne!==' ' && keyTwo!==' ') {
-            var keyOne = pickRandomProperty(newLetters)
-            keyTwo = pickRandomProperty(newLetters)
+            var keyOne = pickRandomProperty(newLetters);
+            var keyTwo = pickRandomProperty(newLetters);
         }
-        var keyOneCoord = newLetters[keyOne]
-        var keyTwoCoord = newLetters[keyTwo]
+        var keyOneCoord = newLetters[keyOne];
+        var keyTwoCoord = newLetters[keyTwo];
     
-        newLetters[keyOne] = keyTwoCoord
-        newLetters[keyTwo] = keyOneCoord
+        newLetters[keyOne] = keyTwoCoord;
+        newLetters[keyTwo] = keyOneCoord;
     
-        return _calculateCost(newLetters)
+        return _calculateCost(newLetters);
     }
 
     function _acceptNeighbor () {
@@ -133,6 +151,9 @@ var Keyboards = (function () {
 
         AcceptNeighbor: function () {
             _acceptNeighbor();
+        },
+        CalcCost: function (board) {
+            return _calculateCost(board);
         }
     };
 })();
